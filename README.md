@@ -1,4 +1,4 @@
 scrachpad
 =========
 
-All pratice works
+All practice works
