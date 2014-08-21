@@ -49,3 +49,12 @@ extern void* heap_delroot(void* handle);
  * Returns NULL on underflow.
  */
 extern void* heap_getroot(void* handle);
+
+/* Upadte the value of particular node.
+ * Takes heap handle, pointer to payload and new value.
+ * Returns 0 on sucesss full upadtion. Otherwise returns 1.
+ * The caller must take care to update the new value inside
+ * payload (if value is stored inside payload). This routine
+ * will not update value inside payload
+ */
+extern int heap_updateval(void* handle, void* data, heapval_t newval);

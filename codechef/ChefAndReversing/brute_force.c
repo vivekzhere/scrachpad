@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "types_x86_64.h"
+
+#include "/home/vivekana/Code/scrachpad/lib/types_x86_64.h"
 
 /* Given N and M as input (N number of vetrices and M edges),
  * this function creates adjacency matrix by reading M (a, b) pairs
