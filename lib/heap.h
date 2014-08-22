@@ -28,6 +28,13 @@ extern void* heap_attach(uint32 max_len, uint8 type);
  */
 extern void* heap_detach(void* handle);
 
+/* Reset the heap as empty.
+ * Will not free the memory allocated.
+ * Heap can be re used after reset.
+ * Returns 0 on sucess, 1 on failure.
+ */
+extern int heap_reset(void* handle);
+
 /* Insert an element into the heap.
  * Takes heap handle, pointer to a payload and a
  * value of type heapval_t as arguments.

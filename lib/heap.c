@@ -85,6 +85,22 @@ void* heap_attach(uint32 max_len, uint8 type)
 	return info;
 }
 
+/* Reset the heap as empty.
+ * Will not free the memory allocated.
+ * Heap can be re used after reset
+ * Returns 0 on sucess, 1 on failure.
+ */
+int heap_reset(void* handle)
+{
+	heap_infoptr_t info = (heap_infoptr_t) handle;
+
+	if (!info)
+		return 1;
+	
+	info->size = 0;
+	return 0;
+}
+
 /* HEAPIFY is an important subroutine for manipulating heaps.
  * Its inputs are Heap_info for the heap and an index i into the array.
  * When HEAPIFY is called, it is assumed that the binary trees rooted at
