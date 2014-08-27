@@ -187,7 +187,7 @@ void assign_and_solve(float A[M][N + 1], float rand)
 {
 	int flag[N] = {0}; /* Is the variable solved or not */
 	int i, j, k;
-	float variable_val;
+	float X[N];
 
 	j = 0;
 
@@ -225,7 +225,7 @@ void assign_and_solve(float A[M][N + 1], float rand)
 			 * The ith equation is Xk = A[i][N]. So we can
 			 * substitute kth variable with A[i][N]
 			 */
-			variable_val = A[i][N];
+			X[k] = A[i][N];
 		} else {
 			/* find_single_row returns M if all equations have more than
 			 * one variable. So we take the LAST unsolved variable and
@@ -234,15 +234,18 @@ void assign_and_solve(float A[M][N + 1], float rand)
 			 * form is maintained.
 			 */
 			for (k = N - 1; k >= 0 && flag[k] == 1; k--);
-			variable_val = rand;
+			X[k] = rand;
 		}
 		flag[k] = 1; /* Mark variable as solved */
 
 		/* Substiute the variable with value in the system */
-		substitute_variable(A, k, variable_val);
-		printf("X%d = %.2f\n", k, variable_val);
+		substitute_variable(A, k, X[k]);
 		j++;
 	}
+	
+	/* Print the solution */
+	for (k = 0; k < N; k++)
+		printf("X%d = %.2f\n", k, X[k]);
 }
 
 int main()
