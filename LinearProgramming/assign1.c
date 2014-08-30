@@ -264,22 +264,27 @@ int main()
 
 	/* Convert A to row echelon form */
 	row_echelon(A);
+	
+	printf("Row echelon Form :\n");
+	print_matrix(A);
 
 	/* Check whether system is consistent */
 	if (checkif_sol_exist(A) == 0) {
-		printf ("Equation is in consistent\n");
+		printf ("\nEquation is in consistent\n");
 		return 0;
 	}
 
-	printf("One solution is :\n");
-	/* Solve and priint the solutions */
+	printf("\nOne solution is :\n");
+	/* Solve and priint the solutions. Each free variable is
+	 * substituted as 1. This could be anyother number instead of 1.
+	 */
 	assign_and_solve(A, 1);
 
 	/* Verification print. If every is correct this should print all
 	 * zeros. All variables have been assigned values and substituted.
+	 * printf("\nVerification :\n");
+	 * print_matrix(A);
 	 */
-	printf("\nVerification :\n");
-	print_matrix(A);
 	return 0;
 }
 /* Sample Input
