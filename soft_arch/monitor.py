@@ -26,7 +26,7 @@ class test_server:
             self.ip = "192.168.56.11"
         else:
             self.ip = "192.168.56.12"
-        threading.Timer(2, self.test_server_timer).start()
+        threading.Timer(1, self.test_server_timer).start()
 
     def get_server(self):
         return self.ip
@@ -52,7 +52,12 @@ class myHandler(BaseHTTPRequestHandler):
 
         try:
             conn = httplib.HTTPConnection(ip)
-            conn.request(request_type, request_url)
+            if request_type == "POST":
+                content_len = int(self.headers.getheader('content-length', 0))
+                post_body = self.rfile.read(content_len)
+                conn.request(request_type, request_url, post_body)
+            else:
+                conn.request(request_type, request_url)
             r1 = conn.getresponse()
         except:
             print "Connection Failed\n"
@@ -64,6 +69,9 @@ class myHandler(BaseHTTPRequestHandler):
         # Send the html message
         self.wfile.write(data1)
         
+        return
+    def do_POST(self):
+        self.do_GET()
         return
 
 try:
