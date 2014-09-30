@@ -1,0 +1,32 @@
+Count the marbles
+
+Kancha loves playing with marbles. After studying about triangles in geometry class, he wanted to set up equilateral triangles with marbles as shown in the figure. 
+
+   *        *               *                       *
+
+         *     *        *       *               *       *
+
+                      *     *      *         *      *       *
+
+                                          *       *       *       *
+
+He needs to know the number of marbles needed to form the triangles. But, he is bad at maths. He asks for your help.
+Input
+
+The first line will consist of 1 integer T ( 1 <= T <= 10000)  denoting the number of test cases. This will be followed by T number of lines. Each line will consist of one integer N ( 1<= N <= 10000 ) denoting the number of marbles in one side of the equilateral triangle.
+Output
+
+Output should consist of T lines. Each line will consist of an integer denoting the number of marbles needed to form the specified trangle.
+Example
+
+Input:
+4
+1
+2
+3
+4
+ Output:
+1
+3
+6
+10
